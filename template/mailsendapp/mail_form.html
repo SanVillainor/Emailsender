@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" required><br>
+        <label for="content">Content:</label><br>
+        <textarea name="content" id="content" rows="7" cols="60"></textarea><br>
+        <label for="recipient">recipient (enter comma seperated mails)</label>
+        <input type="text" name="recipient" id="recipient" required><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

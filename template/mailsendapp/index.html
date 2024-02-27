@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if mails %}
+    <table>
+        <tr>
+            <th>SR No.</th>
+            <th>Subject</th>
+            <th>Progress</th>
+            <th>DateTime</th>
+        </tr>
+        {% for i in mails %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.subject }}</td>
+            <td>{{ i.progress }}</td>
+            <td>{{ i.datetime }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% else %}
+        <h1>No mails to see</h1>
+    {% endif %}
+    <a href="{% url 'form' %}"><button>Send Mail</button></a>
+    <script>
+        // messages hiden after 5seconds
+        setTimeout(function() {
+            document.querySelectorAll('.messages').forEach(function(el) {
+                el.style.display = 'none';
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
